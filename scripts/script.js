@@ -17,29 +17,6 @@ function weather(position) {
   var long = position.coords.longitude;
   today = yyyy+mm+dd;
   jQuery.ajax({
-    /*
-    beforeSend: function(xhr){xhr.setRequestHeader('X-Requested-With', 'Accept');},
-    */
-    url: "https://cors-anywhere.herokuapp.com/https://www.longpaddock.qld.gov.au/cgi-bin/silo/DataDrillDataset.php",
-    dataType: "JSON",
-    data: {
-      start: today,
-      finish: today,
-      lat: round(lat,6),
-      lon: round(long,6),
-      format: "JSON",
-      username: "example@email.com",
-      password: "password",
-      comment: "R"
-    },
-    success: function(result) {
-      console.log(result);
-    }
-  });
-  jQuery.ajax({
-    /*
-    beforeSend: function(xhr){xhr.setRequestHeader('X-Requested-With', 'Accept');},
-    */
     url: "https://cors-anywhere.herokuapp.com/https://www.longpaddock.qld.gov.au/cgi-bin/silo/DataDrillDataset.php",
     dataType: "JSON",
     data: {
