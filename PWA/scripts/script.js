@@ -18,6 +18,20 @@ function weather(position) {
   var long = position.coords.longitude;
   today = yyyy+mm+dd;
   jQuery.ajax({
+    url: "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather",
+    dataType: "JSON",
+    data: {
+      lat: round(lat,6),
+      lon: round(long,6),
+      appid: weatherkey
+    },
+    success: function(result) {
+      var m = result.main.humidity;
+      loc = result.name;
+      $('#humidity').html("The humidity for " + loc + " is " + m + "%" )
+    }
+  });
+  jQuery.ajax({
     url: "https://cors-anywhere.herokuapp.com/https://www.longpaddock.qld.gov.au/cgi-bin/silo/DataDrillDataset.php",
     dataType: "JSON",
     data: {
@@ -32,21 +46,7 @@ function weather(position) {
     },
     success: function(result) {
       v = result.data[0].variables[0].value
-      $('#rainfall').html("The rainfall for this location today is: " + v + "mm");
-    }
-  });
-  jQuery.ajax({
-    url: "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather",
-    dataType: "JSON",
-    data: {
-      lat: round(lat,6),
-      lon: round(long,6),
-      appid: weatherkey
-    },
-    success: function(result) {
-      var m = result.main.humidity;
-      console.log(result);
-      console.log(m);
+      $('#rainfall').html("The rainfall for " + loc + " today is: " + v + "mm");
     }
   });
 }
