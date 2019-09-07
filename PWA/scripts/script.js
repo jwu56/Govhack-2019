@@ -41,7 +41,7 @@ function weather(position) {
     data: {
       lat: round(lat,6),
       lon: round(long,6),
-      key: weatherkey
+      appid: weatherkey
     },
     success: function(result) {
       console.log(result);
