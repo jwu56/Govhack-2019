@@ -44,7 +44,9 @@ function weather(position) {
       appid: weatherkey
     },
     success: function(result) {
+      var m = result.main.humidity;
       console.log(result);
+      console.log(m);
     }
   });
 }
