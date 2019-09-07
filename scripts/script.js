@@ -9,6 +9,7 @@ function round(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 function weather(position) {
+  var weatherkey = '26b934435cecd3fbd99d8c3ead2bf36b';
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -27,7 +28,19 @@ function weather(position) {
       format: "JSON",
       username: "example@email.com",
       password: "password",
-      comment: "R"
+      comment: ""
+    },
+    success: function(result) {
+      console.log(result);
+    }
+  });
+  jQuery.ajax({
+    url: "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather",
+    dataType: "JSON",
+    data: {
+      lat: round(lat,6),
+      lon: round(long,6),
+      key: weatherkey
     },
     success: function(result) {
       console.log(result);
