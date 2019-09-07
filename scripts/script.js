@@ -32,7 +32,7 @@ function weather(position) {
     },
     success: function(result) {
       v = result.data[0].variables[0].value
-      $('rainfall').html("The rainfall for this location today is: " + v + "mm");
+      $('#rainfall').html("The rainfall for this location today is: " + v + "mm");
     }
   });
   jQuery.ajax({
