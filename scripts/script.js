@@ -31,12 +31,12 @@ function weather(position) {
   var yyyy = today.getFullYear();
   var lat = position.coords.latitude;
   var long = position.coords.longitude;
-  today = dd+mm+yyyy;
+  today = yyyy+mm+dd;
   jQuery.ajax({
     /*
-    beforeSend: function(xhr){xhr.setRequestHeader('Origin', 'longpaddock.qld.gov.au');},
+    beforeSend: function(xhr){xhr.setRequestHeader('X-Requested-With', 'Accept');},
     */
-    url: "https://cors-anywhere.herokuapp.com/www.longpaddock.qld.gov.au/cgi-bin/silo/DataDrillDataset.php",
+    url: "https://cors-anywhere.herokuapp.com/https://www.longpaddock.qld.gov.au/cgi-bin/silo/DataDrillDataset.php",
     dataType: "JSON",
     data: {
       start: today,
@@ -45,11 +45,31 @@ function weather(position) {
       lon: round(long,6),
       format: "JSON",
       username: "example@email.com",
-      password: "password"
+      password: "password",
+      comment: "R"
     },
     success: function(result) {
       console.log(result);
-      $( "#weather-temp" ).html( result );
+    }
+  });
+  jQuery.ajax({
+    /*
+    beforeSend: function(xhr){xhr.setRequestHeader('X-Requested-With', 'Accept');},
+    */
+    url: "https://cors-anywhere.herokuapp.com/https://www.longpaddock.qld.gov.au/cgi-bin/silo/DataDrillDataset.php",
+    dataType: "JSON",
+    data: {
+      start: today,
+      finish: today,
+      lat: round(lat,6),
+      lon: round(long,6),
+      format: "JSON",
+      username: "example@email.com",
+      password: "password",
+      comment: "R"
+    },
+    success: function(result) {
+      console.log(result);
     }
   });
 }
