@@ -28,10 +28,11 @@ function weather(position) {
       format: "JSON",
       username: "example@email.com",
       password: "password",
-      comment: ""
+      comment: "R"
     },
     success: function(result) {
-      console.log(result);
+      v = result.data[0].variables[0].value
+      $('rainfall').html("The rainfall for this location today is: " + v + "mm");
     }
   });
   jQuery.ajax({
