@@ -19,7 +19,7 @@ function weather(position) {
   var long = position.coords.longitude;
   today = yyyy+mm+dd;
   jQuery.ajax({
-    url: "http://allow-any-origin.appspot.com/http://api.openweathermap.org/data/2.5/weather",
+    url: "https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather",
     dataType: "JSON",
     data: {
       lat: round(lat,6),
@@ -33,7 +33,7 @@ function weather(position) {
     }
   });
   jQuery.ajax({
-    url: "http://allow-any-origin.appspot.com/https://www.longpaddock.qld.gov.au/cgi-bin/silo/DataDrillDataset.php",
+    url: "https://crossorigin.me/https://www.longpaddock.qld.gov.au/cgi-bin/silo/DataDrillDataset.php",
     dataType: "JSON",
     data: {
       start: today,
