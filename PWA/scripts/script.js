@@ -27,7 +27,7 @@ function weather(position) {
       appid: weatherkey
     },
     success: function(result) {
-      var m = result.main.humidity;
+      m = result.main.humidity;
       loc = result.name;
       $('#humidity').html("The humidity for " + loc + " is " + m + "%" )
     }

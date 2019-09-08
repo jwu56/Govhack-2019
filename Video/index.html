@@ -9,12 +9,22 @@
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
+    z-index: -100;
   }
+  #status {
+    margin: 0 auto;
+    width: 100px; 
+  }
+
     </style>
     <meta charset="utf-8">
     <title>Video Player - Background</title>
   </head>
   <body>
+    <div id="status">
+    <img src="image.png"></img>
+    <h1>System OK</h1>
+  </div>
   <video autoplay muted loop id="video">
     <source src="video.mp4" type="video/mp4">
     </video>
