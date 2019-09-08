@@ -3,6 +3,10 @@
 <html lang="en" dir="ltr">
   <head>
     <style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+    body {
+      font-family: Roboto;
+    }
     video {
     position: fixed;
     right: 0;
@@ -13,9 +17,22 @@
   }
   #status {
     color: white;
-    margin: auto;
     width:  50%;
     font-size:100px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align:center;
+  }
+  img {
+    margin-top: 80px
+  }
+  #stat{
+    font-family: serif;
+    margin: auto;
   }
 
     </style>
@@ -24,8 +41,8 @@
   </head>
   <body>
     <div id="status">
+    <h1 id="stat">System OK</h1>
     <img src="image.png"></img>
-    <h1>System OK</h1>
   </div>
   <video autoplay muted loop id="video">
     <source src="video.mp4" type="video/mp4">
