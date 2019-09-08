@@ -47,7 +47,7 @@ function weather(position) {
     },
     success: function(result) {
       v = result.data[0].variables[0].value
-      $('#rainfall').html("The rainfall for " + loc + " today is: " + v + "mm");
+      $('#rainfall').html("The rainfall for " + loc + " is: " + v + "mm");
     }
   });
 }
